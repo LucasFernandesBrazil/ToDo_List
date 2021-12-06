@@ -1,11 +1,8 @@
 import "./App.css";
+import AddTask from "./components/AddTask";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello, World!</h1>
-    </div>
-  );
+  return <AddTask />;
 }
 
 export default App;
