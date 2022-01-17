@@ -6,7 +6,6 @@ import "./style.css";
 import FormItem from "antd/lib/form/FormItem";
 
 export default function AddTask() {
-  const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
 
   function handleAddItemToList(value) {
@@ -14,6 +13,14 @@ export default function AddTask() {
       setTaskList([...taskList, value.task]);
     }
     console.log({ taskList });
+  }
+
+  function deleteTask(task) {
+    console.log("Entrei", task);
+    let index = taskList.indexOf(task);
+    let newArray = [...taskList];
+    newArray.splice(index, 1);
+    setTaskList(newArray);
   }
 
   return (
@@ -43,7 +50,7 @@ export default function AddTask() {
         align="center"
       >
         <Col style={{ display: "flex", justifyContent: "center" }} span={24}>
-          <Task key={taskList} item={taskList} />
+          <Task key={taskList} deleteTask={deleteTask} task={taskList} />
         </Col>
       </Row>
     </>

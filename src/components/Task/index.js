@@ -3,15 +3,15 @@ import { Row, Col, Input, Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import "./style.css";
 
-export default function Task(props) {
+export default function Task({ task, deleteTask }) {
   return (
     <>
       <ul>
-        {console.log({ props })}
-        {props.item.map((item) => (
+        {console.log({ task })}
+        {task.map((item) => (
           <li className="task">
             {item}
-            <Button>X</Button>
+            <Button onClick={() => deleteTask(item)}>X</Button>
           </li>
         ))}
       </ul>
