@@ -3,23 +3,17 @@ import { Row, Col, Input, Button, Form } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import Task from "../Task";
 import "./style.css";
+import FormItem from "antd/lib/form/FormItem";
 
 export default function AddTask() {
   const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
 
-  function handleChangeInput(e) {
-    const inputTask = e.target.value;
-
-    setTask(inputTask);
-  }
-
-  function handleAddItemToList(e) {
-    //e.preventDefault();
-    if (task) {
-      setTaskList([...taskList, task]);
-      setTask("");
+  function handleAddItemToList(value) {
+    if (value) {
+      setTaskList([...taskList, value.task]);
     }
+    console.log({ taskList });
   }
 
   return (
@@ -28,21 +22,18 @@ export default function AddTask() {
         <Form onFinish={handleAddItemToList}>
           <h1>O que você tem que fazer hoje?</h1>
           <Col span={24}>
-            <Input.Group
-              style={{ display: "flex", justifyContent: "center" }}
-              compact
-            >
+            <Form.Item name="task">
               <Input
                 type="text"
                 placeholder="Digite sua tarefa"
-                onChange={handleChangeInput}
-                value={task}
                 style={{ width: "calc(100% - 200px)" }}
               />
+            </Form.Item>
+            <Form.Item>
               <Button type="primary" htmlType="submit">
                 Adicionar
               </Button>
-            </Input.Group>
+            </Form.Item>
           </Col>
         </Form>
       </Row>

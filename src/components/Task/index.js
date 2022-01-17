@@ -7,8 +7,12 @@ export default function Task(props) {
   return (
     <>
       <ul>
+        {console.log({ props })}
         {props.item.map((item) => (
-          <li className="task">{item}</li>
+          <li className="task">
+            {item}
+            <Button>X</Button>
+          </li>
         ))}
       </ul>
     </>
