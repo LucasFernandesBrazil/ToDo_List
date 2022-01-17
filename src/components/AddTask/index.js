@@ -10,17 +10,23 @@ export default function AddTask() {
 
   function handleAddItemToList(value) {
     if (value) {
-      setTaskList([...taskList, value.task]);
+      setTaskList([...taskList, [value.task, false]]);
     }
     console.log({ taskList });
   }
 
   function deleteTask(task) {
-    console.log("Entrei", task);
     let index = taskList.indexOf(task);
-    let newArray = [...taskList];
-    newArray.splice(index, 1);
-    setTaskList(newArray);
+    let newTaskList = [...taskList];
+    newTaskList.splice(index, 1);
+    setTaskList(newTaskList);
+  }
+
+  function onComplete(task) {
+    let index = taskList.indexOf(task);
+    let newTaskList = [...taskList];
+    newTaskList[index][1] = newTaskList[index][1] ? false : true;
+    setTaskList(newTaskList);
   }
 
   return (
@@ -50,7 +56,12 @@ export default function AddTask() {
         align="center"
       >
         <Col style={{ display: "flex", justifyContent: "center" }} span={24}>
-          <Task key={taskList} deleteTask={deleteTask} task={taskList} />
+          <Task
+            key={taskList}
+            deleteTask={deleteTask}
+            onComplete={onComplete}
+            task={taskList}
+          />
         </Col>
       </Row>
     </>
