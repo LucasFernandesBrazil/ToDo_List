@@ -1,8 +1,14 @@
 import "./App.css";
 import AddTask from "./components/AddTask";
+import Banner from "./components/Banner";
 
 function App() {
-  return <AddTask />;
+  return (
+    <>
+      <Banner />
+      <AddTask />
+    </>
+  );
 }
 
 export default App;

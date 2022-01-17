@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Input, Button, Form } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
-import Task from "../Task";
+import TaskList from "../TaskList";
 import "./style.css";
 import FormItem from "antd/lib/form/FormItem";
 
@@ -32,16 +32,18 @@ export default function AddTask() {
   return (
     <>
       <Row justify="center" align="center">
-        <Form onFinish={handleAddItemToList}>
+        <Col>
           <h1>O que você tem que fazer hoje?</h1>
-          <Col span={24}>
+        </Col>
+      </Row>
+      <Row justify="center" align="center">
+        <Form onFinish={handleAddItemToList} style={{ display: "flex" }}>
+          <Col span={16}>
             <Form.Item name="task">
-              <Input
-                type="text"
-                placeholder="Digite sua tarefa"
-                style={{ width: "calc(100% - 200px)" }}
-              />
+              <Input type="text" placeholder="Digite sua tarefa" />
             </Form.Item>
+          </Col>
+          <Col span={4}>
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 Adicionar
@@ -56,7 +58,7 @@ export default function AddTask() {
         align="center"
       >
         <Col style={{ display: "flex", justifyContent: "center" }} span={24}>
-          <Task
+          <TaskList
             key={taskList}
             deleteTask={deleteTask}
             onComplete={onComplete}

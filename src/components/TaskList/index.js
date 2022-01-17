@@ -3,7 +3,7 @@ import { Row, Col, Input, Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 import "./style.css";
 
-export default function Task({ task, deleteTask, onComplete }) {
+export default function TaskList({ task, deleteTask, onComplete }) {
   return (
     <>
       <ul>
