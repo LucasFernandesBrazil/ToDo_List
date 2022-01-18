@@ -1,6 +1,6 @@
 import React from "react";
-import { Row, Col, Input, Button } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
+import { Row, Col, Checkbox, Button } from "antd";
+import { CloseCircleOutlined } from "@ant-design/icons";
 import "./style.css";
 
 export default function TaskList({ task, deleteTask, onComplete }) {
@@ -11,11 +11,24 @@ export default function TaskList({ task, deleteTask, onComplete }) {
         {task.map((item) => (
           <li
             className="task"
-            style={{ color: item[1] ? "#FFFFFF" : "#DDDDD" }}
+            style={{
+              textDecoration: item[1] ? "line-through #DDDDDD " : "none",
+              color: item[1] ? "#DDDDDD " : "#00000",
+            }}
           >
+            <Checkbox
+              className="checkTask"
+              checked={item[1]}
+              onChange={() => onComplete(item)}
+            ></Checkbox>
             {item}
-            <Button onClick={() => deleteTask(item)}>X</Button>
-            <Button onClick={() => onComplete(item)}>Check</Button>
+            <Button
+              className="closeButton"
+              type="text"
+              onClick={() => deleteTask(item)}
+            >
+              <CloseCircleOutlined style={{ color: "#f5222d" }} />
+            </Button>
           </li>
         ))}
       </ul>

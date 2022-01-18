@@ -37,15 +37,22 @@ export default function AddTask() {
         </Col>
       </Row>
       <Row justify="center" align="center">
-        <Form onFinish={handleAddItemToList} style={{ display: "flex" }}>
-          <Col span={16}>
+        <Form
+          onFinish={handleAddItemToList}
+          style={{ width: "35%", display: "flex", justifyContent: "center" }}
+        >
+          <Col span={19}>
             <Form.Item name="task">
-              <Input type="text" placeholder="Digite sua tarefa" />
+              <Input
+                type="text"
+                placeholder="Digite sua tarefa"
+                style={{ width: "100%" }}
+              />
             </Form.Item>
           </Col>
-          <Col span={4}>
+          <Col style={{ display: "flex", justifyContent: "end" }} span={3}>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button size="100%" type="primary" htmlType="submit">
                 Adicionar
               </Button>
             </Form.Item>
@@ -58,12 +65,16 @@ export default function AddTask() {
         align="center"
       >
         <Col style={{ display: "flex", justifyContent: "center" }} span={24}>
-          <TaskList
-            key={taskList}
-            deleteTask={deleteTask}
-            onComplete={onComplete}
-            task={taskList}
-          />
+          <div
+            style={{ width: "35%", display: "flex", justifyContent: "center" }}
+          >
+            <TaskList
+              key={taskList}
+              deleteTask={deleteTask}
+              onComplete={onComplete}
+              task={taskList}
+            />
+          </div>
         </Col>
       </Row>
     </>
