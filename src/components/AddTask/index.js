@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Row, Col, Input, Button, Form } from "antd";
-import { PlusCircleOutlined } from "@ant-design/icons";
 import TaskList from "../TaskList";
 import "./style.css";
-import FormItem from "antd/lib/form/FormItem";
 
 export default function AddTask() {
   const [taskList, setTaskList] = useState([]);

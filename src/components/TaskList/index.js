@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Checkbox, Button } from "antd";
+import { Checkbox, Button } from "antd";
 import { CloseCircleOutlined } from "@ant-design/icons";
 import "./style.css";
 
