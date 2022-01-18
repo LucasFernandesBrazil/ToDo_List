@@ -12,7 +12,6 @@ export default function AddTask() {
     if (value) {
       setTaskList([...taskList, [value.task, false]]);
     }
-    console.log({ taskList });
   }
 
   function deleteTask(task) {

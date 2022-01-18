@@ -7,8 +7,8 @@
 }
 
 .closeButton {
-  position: relative;
-  left: 80%;
+  position: absolute;
+  left: 63%;
 }
 
 .checkTask {

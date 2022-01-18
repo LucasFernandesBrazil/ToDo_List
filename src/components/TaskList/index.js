@@ -7,7 +7,6 @@ export default function TaskList({ task, deleteTask, onComplete }) {
   return (
     <>
       <ul>
-        {console.log({ task })}
         {task.map((item) => (
           <li
             className="task"
